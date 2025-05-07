@@ -1,9 +1,18 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Test') {
             steps {
                 echo 'hello world'
+            }
+        }
+        stage('tooling') {
+            steps {
+                sh '''
+                  docker version
+                  docker info
+                  docker compose version
+                '''
             }
         }
     }
