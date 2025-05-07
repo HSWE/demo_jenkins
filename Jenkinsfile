@@ -6,13 +6,9 @@ pipeline {
                 echo 'hello world'
             }
         }
-        stage('tooling') {
+        stage('Start containers') {
             steps {
-                sh '''
-                  docker version
-                  docker info
-                  docker compose version
-                '''
+                sh 'docker compose up -d'
             }
         }
     }
